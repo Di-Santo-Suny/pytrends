@@ -220,6 +220,7 @@ def _fetch_data(sleep, trendreq, kw_list, timeframe='today 3-m', cat=0, geo='', 
         # in case of short query interval getting banned by server
         try:
             time.sleep(t)
+            print(f'fetching {timeframe}')
             return trendreq.interest_over_time()
         except IndexError as err:
             return None
