@@ -42,6 +42,7 @@ def get_daily_trend(trendreq, keyword:str, start:str, end:str, cat=0,
     """
 
     path = f'interest_over_time/c{cat}/{"world" if not geo else geo}/{"web" if not gprop else gprop}/tz{tz}/daily/{keyword}'
+    print('lookup path: ',path)
 
     def fetcher(tf): return _fetch_data(sleep, trendreq, [keyword], timeframe=tf, cat=cat, geo=geo, gprop=gprop)
     def set_tz(df): df.index += timedelta(minutes=tz)
